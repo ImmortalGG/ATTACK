@@ -19,5 +19,6 @@ namespace ATTACK.Models
         public int _Cantidad_Cartas { get { return Cantidad_Cartas; } set { Cantidad_Cartas = value; } }
 
 
+
     }
 }
