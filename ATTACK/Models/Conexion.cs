@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data.OleDb;
 
-namespace Beta_servicios
+namespace ATTACK.Models
 {
     public class Conexion
     {
@@ -16,48 +16,10 @@ namespace Beta_servicios
         bool conecta;
         String xconecta;
 
-        public void parametro(String bd, String ip,String nom_usuario,String clave)
+        public void parametro()
         {
 
-            switch (bd)
-            {
-                case "":
-                    //strconexion = System.Configuration.ConfigurationManager.ConnectionStrings["CS_PHR"].ConnectionString;
-                    strconexion = Cadenaconexion.cadena_armada(nom_usuario, "CAPDES01", "SIPP_JCM", clave);
-                    break;
-                case "SIPP_CAP":
-                    //strconexion = System.Configuration.ConfigurationManager.ConnectionStrings["CS_CAP"].ConnectionString;
-                    strconexion = Cadenaconexion.cadena_armada(nom_usuario, "CAPDES01", "SIPP_JCM", clave);
-                    break;
-                case "SIPP_PHP":
-                   // strconexion = System.Configuration.ConfigurationManager.ConnectionStrings["CS_PHP"].ConnectionString;
-                    strconexion = Cadenaconexion.cadena_armada(nom_usuario, "CAPDES01", "SIPP_JCM", clave);
-                    break;
-                case "SIPP_PHT":
-                   // strconexion = System.Configuration.ConfigurationManager.ConnectionStrings["CS_PHT"].ConnectionString;
-                    strconexion = Cadenaconexion.cadena_armada(nom_usuario, "CAPDES01", "SIPP_JCM", clave);
-                    break;
-                case "SIPP_PHR":
-                   // strconexion = System.Configuration.ConfigurationManager.ConnectionStrings["CS_PHR"].ConnectionString;
-                    strconexion = Cadenaconexion.cadena_armada(nom_usuario, "CAPDES01", "SIPP_JCM", clave);
-                    break;
-                case "SIPP_PGP":
-                   // strconexion = System.Configuration.ConfigurationManager.ConnectionStrings["CS_PGP"].ConnectionString;
-                    strconexion = Cadenaconexion.cadena_armada(nom_usuario, "CAPDES01", "SIPP_JCM", clave);
-                    break;
-                case "SIPP_PG":
-                   // strconexion = System.Configuration.ConfigurationManager.ConnectionStrings["CS_PGP"].ConnectionString;
-                    strconexion = Cadenaconexion.cadena_armada(nom_usuario, "CAPDES01", "SIPP_JCM", clave);
-                    break;
-                case "ARQUIAF":
-                    strconexion = "Provider=ASEOLEDB.1;Data Source= 10.129.20.160,5000;Password=jucast1_pre;User ID=jucast1_pre;Initial Catalog=arquitectura;Connect Timeout=0";
-
-                    break;
-                case "a":
-                    strconexion = "Provider=ASEOLEDB.1;Data Source= 10.129.20.160,5000;Password=jucast1_pre;User ID=jucast1_pre;Initial Catalog=arquitectura;Connect Timeout=0";
-
-                    break;
-            }
+           
         }
 
         public void parametro_CRM(String bd, String ip, String nom_usuario, String clave)
