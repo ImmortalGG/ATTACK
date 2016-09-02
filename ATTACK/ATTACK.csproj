@@ -138,8 +138,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Cadenaconexion.cs" />
     <Compile Include="Models\Clase_Carta.cs" />
     <Compile Include="Models\Clase_Deck.cs" />
+    <Compile Include="Models\Clase_Usuario.cs" />
+    <Compile Include="Models\Conexion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
