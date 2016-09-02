@@ -54,5 +54,67 @@ namespace ATTACK.Models
             CONTENEDOR.Close();
             return respuesta;
         }
+
+        public static int Modificar_Carta(int _ID, String _Nombre_Carta, int _ATK, int _DEF, int _HP, String _PODER, String _elemento) //modifica una carta
+        {
+            int respuesta = 0;
+
+            Conexion conx_detalles = new Conexion();
+            conx_detalles.parametro();
+            conx_detalles.inicializa();
+            string CONSULTA;
+            System.Data.OleDb.OleDbDataReader CONTENEDOR;
+
+            CONSULTA = "EXEC MODIFICAR_CARTA ?,?,?,?,?,?,?";
+            conx_detalles.annadir_consulta(CONSULTA);
+            conx_detalles.annadir_parametro(_ID, 1);
+            conx_detalles.annadir_parametro(_Nombre_Carta, 2);
+            conx_detalles.annadir_parametro(_ATK, 1);
+            conx_detalles.annadir_parametro(_DEF, 1);
+            conx_detalles.annadir_parametro(_HP, 1);
+            conx_detalles.annadir_parametro(_PODER, 2);
+            conx_detalles.annadir_parametro(_elemento, 2);
+            CONTENEDOR = conx_detalles.busca();
+            while (CONTENEDOR.Read())
+            {
+                respuesta = Convert.ToInt32(CONTENEDOR[0].ToString());
+            }
+            conx_detalles.conexion.Close();
+            conx_detalles.conexion.Dispose();
+            CONTENEDOR.Close();
+            return respuesta;
+        }
+
+        public static int Eliminar_Carta(int _ID, String _Nombre_Carta, int _ATK, int _DEF, int _HP, String _PODER, String _elemento) //eliminar una carta
+        {
+            int respuesta = 0;
+
+            Conexion conx_detalles = new Conexion();
+            conx_detalles.parametro();
+            conx_detalles.inicializa();
+            string CONSULTA;
+            System.Data.OleDb.OleDbDataReader CONTENEDOR;
+
+            CONSULTA = "EXEC ELIMINAR_CARTA ?,?,?,?,?,?,?";
+            conx_detalles.annadir_consulta(CONSULTA);
+            conx_detalles.annadir_parametro(_ID, 1);
+            conx_detalles.annadir_parametro(_Nombre_Carta, 2);
+            conx_detalles.annadir_parametro(_ATK, 1);
+            conx_detalles.annadir_parametro(_DEF, 1);
+            conx_detalles.annadir_parametro(_HP, 1);
+            conx_detalles.annadir_parametro(_PODER, 2);
+            conx_detalles.annadir_parametro(_elemento, 2);
+            CONTENEDOR = conx_detalles.busca();
+            while (CONTENEDOR.Read())
+            {
+                respuesta = Convert.ToInt32(CONTENEDOR[0].ToString());
+            }
+            conx_detalles.conexion.Close();
+            conx_detalles.conexion.Dispose();
+            CONTENEDOR.Close();
+            return respuesta;
+        }
+
+
     }
 }
