@@ -18,7 +18,7 @@ namespace ATTACK.Models
         public Clase_Carta _ID_Carta { get { return ID_Carta; } set { ID_Carta = value; } }
         public int _Cantidad_Cartas { get { return Cantidad_Cartas; } set { Cantidad_Cartas = value; } }
 
-        public static int Insertar_Usuario(String _Nombre_Usuario, String _Nombre_Deck, int _ID_Carta, int _Cantidad_Cartas) //inserta un deck
+        public static int Insertar_Deck(String _Nombre_Usuario, String _Nombre_Deck, int _ID_Carta, int _Cantidad_Cartas) //inserta un deck
         {
             int respuesta = 0;
 
@@ -45,7 +45,7 @@ namespace ATTACK.Models
             return respuesta;
         }
 
-        public static int Modificar_Usuario(String _Nombre_Usuario, String _Nombre_Deck, int _ID_Carta, int _Cantidad_Cartas) //modificar un deck
+        public static int Modificar_Deck(String _Nombre_Usuario, String _Nombre_Deck, int _ID_Carta, int _Cantidad_Cartas) //modificar un deck
         {
             int respuesta = 0;
 
@@ -72,7 +72,7 @@ namespace ATTACK.Models
             return respuesta;
         }
 
-        public static int Eliminar_Usuario(String _Nombre_Usuario, String _Nombre_Deck, int _ID_Carta, int _Cantidad_Cartas) //eliminar un deck
+        public static int Eliminar_Deck(String _Nombre_Usuario, String _Nombre_Deck, int _ID_Carta, int _Cantidad_Cartas) //eliminar un deck
         {
             int respuesta = 0;
 
