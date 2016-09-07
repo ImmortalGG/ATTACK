@@ -115,6 +115,40 @@ namespace ATTACK.Models
             return respuesta;
         }
 
+        public static List<Clase_Carta> Todos_las_cartas()
+        {
+            List<Clase_Carta> listaadevolver = new List<Clase_Carta>(); //busqueda de las cartas existentes en la base de datos
+
+
+            Conexion cnx = new Conexion();
+            cnx.parametro();
+            cnx.inicializa();
+            string CONSULTA;
+            System.Data.OleDb.OleDbDataReader CONTENEDOR;
+
+            CONSULTA = "EXEC SELECCIONAR_CARTA ?";
+            cnx.annadir_consulta(CONSULTA);
+            cnx.annadir_parametro(0, 1);
+            CONTENEDOR = cnx.busca();
+            while (CONTENEDOR.Read())
+            {
+                Models.Clase_Carta nuevacarta = new Models.Clase_Carta();
+                nuevacarta._Nombre_Carta = CONTENEDOR["NOMBRE_CARTA"].ToString();
+                nuevacarta._ID = Convert.ToInt32(CONTENEDOR["ID"].ToString());
+                nuevacarta._ATK = Convert.ToInt32(CONTENEDOR["ATK"].ToString());
+                nuevacarta._DEF = Convert.ToInt32(CONTENEDOR["DEF"].ToString());
+                nuevacarta._HP = Convert.ToInt32(CONTENEDOR["HP"].ToString());
+                nuevacarta._PODER = CONTENEDOR["PODER"].ToString();
+                nuevacarta._elemento = CONTENEDOR["ELEMENTO"].ToString();
+                listaadevolver.Add(nuevacarta);
+
+            }
+            cnx.conexion.Close();
+            cnx.conexion.Dispose();
+            CONTENEDOR.Close();
+            return listaadevolver;
+
+        }
 
     }
 }

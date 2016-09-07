@@ -99,5 +99,39 @@ namespace ATTACK.Models
             CONTENEDOR.Close();
             return respuesta;
         }
+
+
+        public static List<Clase_Usuario> Todos_los_usuarios()
+        {
+            List<Clase_Usuario> listaadevolver = new List<Clase_Usuario>(); //busqueda de los usuarios existentes en la base de datos
+
+
+            Conexion cnx = new Conexion();
+            cnx.parametro();
+            cnx.inicializa();
+            string CONSULTA;
+            System.Data.OleDb.OleDbDataReader CONTENEDOR;
+
+            CONSULTA = "EXEC SELECCIONAR_USUARIO ?";
+            cnx.annadir_consulta(CONSULTA);
+            cnx.annadir_parametro(0, 1);
+            CONTENEDOR = cnx.busca();
+            while (CONTENEDOR.Read())
+            {
+                Models.Clase_Usuario nuevousuario = new Models.Clase_Usuario();
+                nuevousuario._Contra = CONTENEDOR["CONTRA"].ToString();
+                nuevousuario._Correo = CONTENEDOR["CORREO"].ToString();
+                nuevousuario._Nombre = CONTENEDOR["NOMBRE"].ToString();
+                nuevousuario._Tipo = Convert.ToInt32(CONTENEDOR["TIPO"].ToString());
+                listaadevolver.Add(nuevousuario);
+
+            }
+            cnx.conexion.Close();
+            cnx.conexion.Dispose();
+            CONTENEDOR.Close();
+            return listaadevolver;
+
+        }
+    
     }
 }
