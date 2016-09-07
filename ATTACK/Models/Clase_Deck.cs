@@ -98,5 +98,40 @@ namespace ATTACK.Models
             CONTENEDOR.Close();
             return respuesta;
         }
+
+        public static List<Clase_Deck> Todos_los_decks()
+        {
+            List<Clase_Deck> listaadevolver = new List<Clase_Deck>(); //busqueda de los decks existentes en la base de datos
+
+
+            Conexion cnx = new Conexion();
+            cnx.parametro();
+            cnx.inicializa();
+            string CONSULTA;
+            System.Data.OleDb.OleDbDataReader CONTENEDOR;
+
+            CONSULTA = "EXEC SELECCIONAR_DECK ?";
+            cnx.annadir_consulta(CONSULTA);
+            cnx.annadir_parametro(0, 1);
+            CONTENEDOR = cnx.busca();
+            while (CONTENEDOR.Read())
+            {
+                Models.Clase_Deck nuevodeck = new Models.Clase_Deck();
+                Clase_Usuario user = new Clase_Usuario();
+                user._Nombre = CONTENEDOR["NOMBRE_USUARIO"].ToString();
+                nuevodeck._Nombre_Usuario = user;
+                nuevodeck._Nombre_Deck = CONTENEDOR["NOMBRE_DECK"].ToString();
+                Clase_Carta carta = new Clase_Carta();
+                carta._ID = Convert.ToInt32(CONTENEDOR["ID_CARTA"].ToString());
+                nuevodeck._Cantidad_Cartas = Convert.ToInt32(CONTENEDOR["CANTIDAD_CARTA"].ToString());
+                listaadevolver.Add(nuevodeck);
+
+            }
+            cnx.conexion.Close();
+            cnx.conexion.Dispose();
+            CONTENEDOR.Close();
+            return listaadevolver;
+
+        }
     }
 }

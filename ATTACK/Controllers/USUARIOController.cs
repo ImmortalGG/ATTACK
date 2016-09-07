@@ -23,12 +23,12 @@ namespace ATTACK.Controllers
                     }
                 case "Modificar":
                     {
-                        Models.Clase_combo.Modificar_Combo(Convert.ToInt32(form.Get("Id")), form.Get("Nombre"), Convert.ToInt32(form.Get("Precio")));
+                        Models.Clase_Usuario.Modificar_Usuario(form.Get("NOMBRE"), form.Get("CORREO"), form.Get("CONTRA"), Convert.ToInt32(form.Get("TIPO")));
                         break;
                     }
                 case "Eliminar":
                     {
-                        Models.Clase_combo.Elimina_Combo(Convert.ToInt32(form.Get("Id")));
+                        Models.Clase_Usuario.Eliminar_Usuario(form.Get("NOMBRE"), form.Get("CORREO"), form.Get("CONTRA"), Convert.ToInt32(form.Get("TIPO")));
                         break;
                     }
                 case "listar":
