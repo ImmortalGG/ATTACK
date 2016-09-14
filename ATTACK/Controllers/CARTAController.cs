@@ -5,11 +5,13 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Http.Formatting;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace ATTACK.Controllers
 {
     public class CARTAController : ApiController
     {
+         [EnableCors(origins: "*", headers: "*", methods: "*")]
         public HttpResponseMessage Post(FormDataCollection form)
         {
             switch (form.Get("op"))
