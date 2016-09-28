@@ -18,7 +18,8 @@ namespace ATTACK.Models
 
         public void parametro()
         {
-
+            strconexion = "Provider=SQLOLEDB;Data Source=192.168.59.150;Initial Catalog=ATTACK;Persist Security Info=True;User ID=desarrollo;Password=pass123;Pooling=False";
+             
            
         }
 
