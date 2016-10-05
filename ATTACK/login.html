@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html >
   <head>
     <meta charset="UTF-8">
@@ -20,11 +20,13 @@
   <div class="form">
     <form class="register-form">
       <div class="pe"><img clas="es" src="LOGO.png"></div>
-      <input type="text" placeholder="usuario"/>
-      <input type="text" placeholder="correo" />
-      <input type="password" placeholder="contraseña"/>
-      <input type="text" placeholder="tipo"/>
-      <button>crear</button>
+      <input type="text" id="NOMBRE" placeholder="usuario"/>
+      <input type="text" id="CORREO" placeholder="correo" />
+      <input type="password" id="CONTRA" placeholder="contraseña"/>
+      <input type="text" id="TIPO" placeholder="tipo"/>
+      <button  onclick="insertar_usuario()">crear</button>
+
+        
       <p class="message">Ya tienes una cuenta? <a href="#">Ingresa</a></p>
     </form>
     <form class="login-form">
@@ -40,7 +42,33 @@
 
         <script src="js/index-login.js"></script>
 
-    
+      <script>
+          function insertar_usuario() {
+              var nuevousuario = new Object;
+              nuevousuario.NOMBRE = document.getElementById("NOMBRE").value;
+              nuevousuario.CORREO = document.getElementById("CORREO").value;
+              nuevousuario.CONTRA = document.getElementById("CONTRA").value;
+              nuevousuario.TIPO = document.getElementById("TIPO").value;
+
+
+              nuevousuario.op = "Insertar";
+              $.ajax({
+                  url: "api/USUARIO",
+                  type: "POST",
+                  datatype: ";son",
+                  data: nuevousuario,
+                  success: function (data, textstatus, xhr) {
+                      if (data = 1) {
+                          alert("Usuario creado correctamente")
+                      }
+                  },
+                  error: function (xhr, textstatus, errorThrown) {
+                      alert(textStatus);
+                  }
+              });
+          }
+
+      </script> 
     
     
   </body>
