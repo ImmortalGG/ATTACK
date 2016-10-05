@@ -2,66 +2,167 @@
 <html >
   <head>
     <meta charset="UTF-8">
-    <title>Menu</title>
+    <title>Cartas</title>
     
     
     
     
-
-
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/style-login.css">
+         <link rel="stylesheet" href="css/style.css">
         <script src="js/prefixfree.min.js"></script>
-
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+      <link type="text/css" rel="stylesheet" href="css/estilo.css" media="screen,projection" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      
+    
     
   </head>
+    <header>
+        
+        <div class="container">
 
-  <body>
-      
-    
-      
-      
-      
-<div class="container">
-			
-			
-	
-			<nav class="menu">
-				<ul>
-					<li>
-						<a href="index.html">Menu</a>
-					</li>
-					
-					<li>
-						<a href="cartas.html">Cartas</a>
-					</li>
-					<li>
-						<a href="#">Deck</a>
-					</li>
+            <nav class="menu">
+                <ul>
+                    <li>
+                        <a href="index.html">Menu</a>
+                    </li>
+
+                    <li>
+                        <a href="cartas.html">Cartas</a>
+                    </li>
+                    <li>
+                        <a href="#">Deck</a>
+                    </li>
                     <li class="active">
                         <a href="listados.html">Listados</a>
                     </li>
-                    
-					
-					
-         <li style="float:right;">
-           <a href="">Login</a>
-          </li>
 
-                    <div class="login-page">
-                        <div class="form">
-                            <form class="login-form">
-                               
-                            </form>
-                        </div>
-                    </div> 
 
-				</ul>
-			</nav>
-		</div>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+                    <li style="float:right;">
+                        <a href="login.html">Login</a>
+                    </li>
+
+                </ul>
+            </nav>
+        </div>
+         
+    </header>
+    <body onload="listausuarios()">
+        
+
+        
+         <div class="login-page">
+          <div class="form">
+            <form class="login-form">
+                <div id="Lista"></div>
+            </form>
+          </div>
+        </div> 
     
-        <script src="js/index.js"></script>
 
+   
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+        <script src="js/index-login.js"></script>
+
+     <script>
+    function insertar_carta()
+	{
+	var nuevacarta=new Object;
+	nuevacarta.ID=document.getElementById("ID").value;
+	nuevacarta.NOMBRE_CARTA=document.getElementById("Nombre").value;
+	nuevacarta.ATK=document.getElementById("ATK").value;
+        
+    nuevacarta.DEF=document.getElementById("DEF").value;
+    
+    nuevacarta.HP=document.getElementById("HP").value;
+        
+    nuevacarta.PODER=document.getElementById("PODER").value;
+        
+    nuevacarta.ELEMENTO=document.getElementById("Elemento").value;
+	
+	nuevacarta.op="Insertar";
+	$.ajax({
+	url:"api/CARTA",
+	type:"POST",
+	datatype:";son",
+	data:nuevacarta,
+	success:function(data,textstatus,xhr){
+	if(data=1)
+	{
+	alert("Carta insertada correctamente")
+	}
+	},
+	error:function(xhr,textstatus,errorThrown){
+	alert(textStatus);
+	}
+	});
+    }
+
+    function listausuarios() {
+
+        $('#Lista').append("<h1 id = 'titulo'>Lista de usuarios </h1><table id='tabla' class='display'><thead><tr><th scope='col' abbr='Starter'>NOMBRE</th><th scope='col' abbr='Starter'>CORREO</th><th scope='col' abbr='Starter'>CONTRASENA</th><th scope='col' abbr='Starter'>TIPO</th></tr></thead><tbody></tbody></table>");
+        var USUARIO = new Object();
+        USUARIO.op = "listar";
+
+        $.ajax({
+            url: "api/USUARIO",
+
+            type: 'POST',
+            dataType: 'json',
+            data: USUARIO,
+            success: function (data, textStatus, xhr) {
+
+                for (var ele in data) {
+
+                    var tableRef = document.getElementById('tabla').getElementsByTagName('tbody')[0];
+
+                    // Insert a row in the table at the last row
+                    var newRow = tableRef.insertRow(tableRef.rows.length);
+
+                    // Insert a cell in the row at index 0
+                    var newCell = newRow.insertCell(0);
+
+                    // Append a text node to the cell
+                    var newText = document.createTextNode(data[ele]._Nombre)
+
+                    newCell.appendChild(newText);
+
+                    var newCell2 = newRow.insertCell(1);
+
+                    //
+                    var newText2 = document.createTextNode(data[ele]._Correo);
+                    newCell2.appendChild(newText2);
+                    //
+
+                    var newCell3 = newRow.insertCell(2);
+                    var newText3 = document.createTextNode(data[ele]._Contra)
+                    newCell3.appendChild(newText3);
+
+                    var newCell4 = newRow.insertCell(3);
+                    var newText4 = document.createTextNode(data[ele]._Tipo)
+                    newCell4.appendChild(newText4);
+
+
+
+
+
+
+
+                }
+
+
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                alert(xhr);
+            }
+        });
+
+    }
+      
+        </script>
     
     
     

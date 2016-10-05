@@ -33,7 +33,7 @@ namespace ATTACK.Controllers
                     }
                 case "listar":
                     {
-
+                        List<Models.Clase_Usuario> LISTAVACIA = new List<Models.Clase_Usuario>();
                        
                         HttpResponseMessage response = Request.CreateResponse<List<Models.Clase_Usuario>>(HttpStatusCode.Created, Models.Clase_Usuario.Todos_los_usuarios());
                         return response;
