@@ -28,7 +28,8 @@ namespace ATTACK.Controllers
                     }
                 case "Eliminar":
                     {
-                        Models.Clase_Carta.Eliminar_Carta(Convert.ToInt32(form.Get("ID")), form.Get("NOMBRE_CARTA"), Convert.ToInt32(form.Get("ATK")), Convert.ToInt32(form.Get("DEF")), Convert.ToInt32(form.Get("HP")), form.Get("PODER"), form.Get("ELEMENTO"));
+                        
+                        Models.Clase_Carta.Eliminar_Carta(Convert.ToInt32(form.Get("ID")));
                         break;
                     }
                 case "listar":

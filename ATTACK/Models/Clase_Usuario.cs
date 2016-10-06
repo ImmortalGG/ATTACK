@@ -73,7 +73,7 @@ namespace ATTACK.Models
             return respuesta;
         }
 
-        public static int Eliminar_Usuario(String _Nombre, String _Correo, String _Contra, int _Tipo) //elimina un usuario
+        public static int Eliminar_Usuario(String _Nombre) //elimina un usuario
         {
             int respuesta = 0;
 
@@ -83,12 +83,10 @@ namespace ATTACK.Models
             string CONSULTA;
             System.Data.OleDb.OleDbDataReader CONTENEDOR;
 
-            CONSULTA = "EXEC ELIMINAR_USUARIO ?,?,?,?";
+            CONSULTA = "EXEC ELIMINAR_USUARIO ?";
             conx_detalles.annadir_consulta(CONSULTA);
             conx_detalles.annadir_parametro(_Nombre, 2);
-            conx_detalles.annadir_parametro(_Correo, 2);
-            conx_detalles.annadir_parametro(_Contra, 2);
-            conx_detalles.annadir_parametro(_Tipo, 1);
+
             CONTENEDOR = conx_detalles.busca();
             while (CONTENEDOR.Read())
             {

@@ -28,7 +28,7 @@ namespace ATTACK.Controllers
                     }
                 case "Eliminar":
                     {
-                        Models.Clase_Usuario.Eliminar_Usuario(form.Get("NOMBRE"), form.Get("CORREO"), form.Get("CONTRA"), Convert.ToInt32(form.Get("TIPO")));
+                        Models.Clase_Usuario.Eliminar_Usuario(form.Get("NOMBRE"));
                         break;
                     }
                 case "listar":

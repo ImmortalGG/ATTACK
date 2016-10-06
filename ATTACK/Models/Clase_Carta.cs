@@ -85,7 +85,7 @@ namespace ATTACK.Models
             return respuesta;
         }
 
-        public static int Eliminar_Carta(int _ID, String _Nombre_Carta, int _ATK, int _DEF, int _HP, String _PODER, String _elemento) //eliminar una carta
+        public static int Eliminar_Carta(int _ID) //eliminar una carta
         {
             int respuesta = 0;
 
@@ -95,15 +95,9 @@ namespace ATTACK.Models
             string CONSULTA;
             System.Data.OleDb.OleDbDataReader CONTENEDOR;
 
-            CONSULTA = "EXEC ELIMINAR_CARTA ?,?,?,?,?,?,?";
+            CONSULTA = "EXEC ELIMINAR_CARTA ?";
             conx_detalles.annadir_consulta(CONSULTA);
             conx_detalles.annadir_parametro(_ID, 1);
-            conx_detalles.annadir_parametro(_Nombre_Carta, 2);
-            conx_detalles.annadir_parametro(_ATK, 1);
-            conx_detalles.annadir_parametro(_DEF, 1);
-            conx_detalles.annadir_parametro(_HP, 1);
-            conx_detalles.annadir_parametro(_PODER, 2);
-            conx_detalles.annadir_parametro(_elemento, 2);
             CONTENEDOR = conx_detalles.busca();
             while (CONTENEDOR.Read())
             {

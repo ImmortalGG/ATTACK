@@ -210,6 +210,7 @@
     <Content Include="js\formulario.js" />
     <Content Include="js\materialize.js" />
     <Content Include="js\materialize.min.js" />
+    <Content Include="index.html" />
     <Content Include="listados.html" />
     <Content Include="cartas.html" />
     <Content Include="Content\bootstrap.css" />
@@ -219,7 +220,6 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="index.html" />
     <Content Include="js\index-login.js" />
     <Content Include="js\index.js" />
     <Content Include="js\prefixfree.min.js" />
