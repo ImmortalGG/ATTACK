@@ -33,7 +33,7 @@ namespace ATTACK.Controllers
                     }
                 case "listar":
                     {
-
+                        List<Models.Clase_Carta> LISTAVACIA = new List<Models.Clase_Carta>();
 
                         HttpResponseMessage response = Request.CreateResponse<List<Models.Clase_Carta>>(HttpStatusCode.Created, Models.Clase_Carta.Todos_las_cartas());
                         return response;

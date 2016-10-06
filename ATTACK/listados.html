@@ -49,7 +49,7 @@
         </div>
          
     </header>
-    <body onload="listausuarios()">
+    <body onload="listausuarios(), listacartas()" >
         
 
         
@@ -60,6 +60,14 @@
             </form>
           </div>
         </div> 
+
+        <div class="login-page">
+            <div class="form">
+                <form class="login-form">
+                    <div id="Lista2"></div>
+                </form>
+            </div>
+        </div>
     
 
    
@@ -148,6 +156,75 @@
 
 
 
+
+
+
+                }
+
+
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                alert(xhr);
+            }
+        });
+
+    }
+
+    function listacartas() {
+
+        $('#Lista2').append("<h1 id = 'titulo'>Lista de cartas </h1><table id='tabla' class='display'><thead><tr><th scope='col' abbr='Starter'>ID</th><th scope='col' abbr='Starter'>NOMBRE</th><th scope='col' abbr='Starter'>ATK</th><th scope='col' abbr='Starter'>DEF</th><th scope='col' abbr='Starter'>HP</th><th scope='col' abbr='Starter'>PODER</th><th scope='col' abbr='Starter'>Elemento</th></tr></thead><tbody></tbody></table>");
+        var CARTAS = new Object();
+        CARTAS.op = "listar";
+
+        $.ajax({
+            url: "api/CARTAS",
+
+            type: 'POST',
+            dataType: 'json',
+            data: USUARIO,
+            success: function (data, textStatus, xhr) {
+
+                for (var ele in data) {
+
+                    var tableRef = document.getElementById('tabla').getElementsByTagName('tbody')[0];
+
+                    // Insert a row in the table at the last row
+                    var newRow = tableRef.insertRow(tableRef.rows.length);
+
+                    // Insert a cell in the row at index 0
+                    var newCell = newRow.insertCell(0);
+
+                    // Append a text node to the cell
+                    var newText = document.createTextNode(data[ele]._ID)
+
+                    newCell.appendChild(newText);
+
+                    var newCell2 = newRow.insertCell(1);
+
+                    //
+                    var newText2 = document.createTextNode(data[ele]._Nombre_Carta);
+                    newCell2.appendChild(newText2);
+                    //
+
+                    var newCell3 = newRow.insertCell(2);
+                    var newText3 = document.createTextNode(data[ele]._ATK)
+                    newCell3.appendChild(newText3);
+
+                    var newCell4 = newRow.insertCell(3);
+                    var newText4 = document.createTextNode(data[ele]._DEF)
+                    newCell4.appendChild(newText4);
+
+                    var newCell5 = newRow.insertCell(4);
+                    var newText5 = document.createTextNode(data[ele]._HP)
+                    newCell5.appendChild(newText5);
+
+                    var newCell6 = newRow.insertCell(5);
+                    var newText6 = document.createTextNode(data[ele]._PODER)
+                    newCell6.appendChild(newText6);
+
+                    var newCell7 = newRow.insertCell(6);
+                    var newText7 = document.createTextNode(data[ele]._elemento)
+                    newCell7.appendChild(newText7);
 
 
 
