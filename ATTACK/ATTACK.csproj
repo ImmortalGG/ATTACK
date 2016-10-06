@@ -207,10 +207,14 @@
     <Content Include="css\estilo.css" />
     <Content Include="css\materialize.css" />
     <Content Include="css\materialize.min.css" />
+    <Content Include="css\normalize.css" />
+    <Content Include="css\style2.css" />
     <Content Include="js\formulario.js" />
+    <Content Include="js\index2.js" />
     <Content Include="js\materialize.js" />
     <Content Include="js\materialize.min.js" />
     <Content Include="index.html" />
+    <Content Include="js\prefixfree2.min.js" />
     <Content Include="listados.html" />
     <Content Include="cartas.html" />
     <Content Include="Content\bootstrap.css" />

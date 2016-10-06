@@ -1,13 +1,17 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
 .login-page {
-  width: 400px;
+  width: 600px;
   padding: 8% 0 0;
   margin: auto;
 }
+
+.libre select{
+    z-index:1000;
+}
 .form {
   position: relative;
-  z-index: 1;
+  z-index: 1000;
   background: #FFFFFF;
   max-width: 360px;
   margin: 0 auto 100px;
@@ -27,7 +31,9 @@
   box-sizing: border-box;
   font-size: 14px;
 }
-
+.form select{
+    z-index:1000;
+}
 
 img{
     
