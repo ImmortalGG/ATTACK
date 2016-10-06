@@ -60,6 +60,15 @@
             </form>
           </div>
         </div> 
+
+        <div class="login-page">
+            <div class="form">
+                <form class="login-form">
+                    <input type="text" id="ID2" placeholder="ID" />
+                    <button onclick="eliminar_carta()">eliminar carta</button>
+                </form>
+            </div>
+        </div> 
     
 
    
@@ -98,7 +107,29 @@
 	error:function(xhr,textstatus,errorThrown){
 	alert(textStatus);
 	}
-	});}
+	});
+    }
+
+    function eliminar_carta() {
+        var nuevacarta = new Object;
+        nuevacarta.ID = document.getElementById("ID2").value;
+        
+        nuevacarta.op = "Eliminar";
+        $.ajax({
+            url: "api/CARTA",
+            type: "POST",
+            datatype: ";son",
+            data: nuevacarta,
+            success: function (data, textstatus, xhr) {
+                if (data = 1) {
+                    alert("Carta eliminada correctamente")
+                }
+            },
+            error: function (xhr, textstatus, errorThrown) {
+                alert(textStatus);
+            }
+        });
+    }
       
         </script>
     

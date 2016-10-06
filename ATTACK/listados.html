@@ -172,21 +172,21 @@
 
     function listacartas() {
 
-        $('#Lista2').append("<h1 id = 'titulo'>Lista de cartas </h1><table id='tabla' class='display'><thead><tr><th scope='col' abbr='Starter'>ID</th><th scope='col' abbr='Starter'>NOMBRE</th><th scope='col' abbr='Starter'>ATK</th><th scope='col' abbr='Starter'>DEF</th><th scope='col' abbr='Starter'>HP</th><th scope='col' abbr='Starter'>PODER</th><th scope='col' abbr='Starter'>Elemento</th></tr></thead><tbody></tbody></table>");
+        $('#Lista2').append("<h1 id = 'titulo2'>Lista de cartas </h1><table id='tabla2' class='display'><thead><tr><th scope='col' abbr='Starter'>ID</th><th scope='col' abbr='Starter'>NOMBRE</th><th scope='col' abbr='Starter'>ATK</th><th scope='col' abbr='Starter'>DEF</th><th scope='col' abbr='Starter'>HP</th><th scope='col' abbr='Starter'>PODER</th><th scope='col' abbr='Starter'>Elemento</th></tr></thead><tbody></tbody></table>");
         var CARTAS = new Object();
         CARTAS.op = "listar";
 
         $.ajax({
-            url: "api/CARTAS",
+            url: "api/CARTA",
 
             type: 'POST',
             dataType: 'json',
-            data: USUARIO,
+            data: CARTAS,
             success: function (data, textStatus, xhr) {
 
                 for (var ele in data) {
 
-                    var tableRef = document.getElementById('tabla').getElementsByTagName('tbody')[0];
+                    var tableRef = document.getElementById('tabla2').getElementsByTagName('tbody')[0];
 
                     // Insert a row in the table at the last row
                     var newRow = tableRef.insertRow(tableRef.rows.length);
