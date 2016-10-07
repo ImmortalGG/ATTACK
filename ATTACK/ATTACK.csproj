@@ -211,6 +211,7 @@
     <Content Include="css\style2.css" />
     <Content Include="js\formulario.js" />
     <Content Include="js\index2.js" />
+    <Content Include="js\jquery.min.js" />
     <Content Include="js\materialize.js" />
     <Content Include="js\materialize.min.js" />
     <Content Include="index.html" />

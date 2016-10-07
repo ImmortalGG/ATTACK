@@ -130,6 +130,28 @@ namespace ATTACK.Models
             return listaadevolver;
 
         }
+
+        public static int Login(String _NOMBRE, String _CONTRA)
+        { //permite ingresar a una cuenta existente
+            int resultado = 0;
+
+            Conexion conx_detalles = new Conexion();
+            conx_detalles.parametro();
+            conx_detalles.inicializa();
+            string CONSULTA;
+            System.Data.OleDb.OleDbDataReader CONTENEDOR;
+
+            CONSULTA = "EXEC Login ?,?";
+            conx_detalles.annadir_consulta(CONSULTA);
+            conx_detalles.annadir_parametro(_NOMBRE, 2);
+            conx_detalles.annadir_parametro(_CONTRA, 2);
+            CONTENEDOR = conx_detalles.busca();
+            while (CONTENEDOR.Read())
+            {
+                resultado = Convert.ToInt32(CONTENEDOR[0].ToString());
+            }
+            return resultado;
+        }
     
     }
 }
