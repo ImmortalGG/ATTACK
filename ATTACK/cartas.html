@@ -69,6 +69,15 @@
                 </form>
             </div>
         </div> 
+
+        <div class="login-page">
+            <div class="form">
+                <form class="login-form">
+                    <input type="text" id="ID3" placeholder="Nombre del usuario" />
+                    <button onclick="eliminar_usuario()">eliminar usuario</button>
+                </form>
+            </div>
+        </div> 
     
 
    
@@ -121,8 +130,29 @@
             datatype: ";son",
             data: nuevacarta,
             success: function (data, textstatus, xhr) {
-                if (data = 1) {
+                if (data == 1) {
                     alert("Carta eliminada correctamente")
+                }
+            },
+            error: function (xhr, textstatus, errorThrown) {
+                alert(textStatus);
+            }
+        });
+    }
+
+    function eliminar_usuario() {
+        var nuevacarta = new Object;
+        nuevacarta.NOMBRE = document.getElementById("ID3").value;
+
+        nuevacarta.op = "Eliminar";
+        $.ajax({
+            url: "api/USUARIO",
+            type: "POST",
+            datatype: ";son",
+            data: nuevacarta,
+            success: function (data, textstatus, xhr) {
+                if (data == 1) {
+                    alert("Usuario eliminado correctamente")
                 }
             },
             error: function (xhr, textstatus, errorThrown) {
