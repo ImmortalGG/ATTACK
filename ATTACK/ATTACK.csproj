@@ -229,6 +229,7 @@
     <Content Include="js\index.js" />
     <Content Include="js\prefixfree.min.js" />
     <Content Include="license.txt" />
+    <Content Include="registrate.html" />
     <Content Include="login.html" />
     <Content Include="LOGO.png" />
     <Content Include="obj\Debug\ATTACK.csproj.FileListAbsolute.txt" />
