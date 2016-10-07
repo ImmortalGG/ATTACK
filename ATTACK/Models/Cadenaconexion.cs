@@ -8,7 +8,7 @@ namespace ATTACK.Models
     public class Cadenaconexion
     {
 
-
+        //permite conectar con la base de datos
 
         public static String cadena_armada(string _usuario, string _ip, string _bd, string _clave)
         {

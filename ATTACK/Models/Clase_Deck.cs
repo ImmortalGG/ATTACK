@@ -7,11 +7,12 @@ namespace ATTACK.Models
 {
     public class Clase_Deck
     {
+        //atributos de la clase DECK
         private Clase_Usuario Nombre_Usuario;
         private string Nombre_Deck;
         private Clase_Carta ID_Carta;
         private int Cantidad_Cartas;
-
+        //volver publicos los atributos de la clase deck
         public Clase_Deck() { }
         public Clase_Usuario _Nombre_Usuario { get { return Nombre_Usuario; } set { Nombre_Usuario = value; } }
         public string _Nombre_Deck { get { return Nombre_Deck; } set { Nombre_Deck = value; } }
@@ -110,7 +111,7 @@ namespace ATTACK.Models
             string CONSULTA;
             System.Data.OleDb.OleDbDataReader CONTENEDOR;
 
-            CONSULTA = "EXEC SELECCIONAR_DECK ?";
+            CONSULTA = "EXEC SELECCIONAR_DECK ?";//ejecuta la funcion de la base que permite seleccionar un deck especifico dentro de la base
             cnx.annadir_consulta(CONSULTA);
             cnx.annadir_parametro(0, 1);
             CONTENEDOR = cnx.busca();

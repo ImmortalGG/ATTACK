@@ -15,7 +15,7 @@ namespace ATTACK.Models
         private int HP;
         private string PODER;
         private string elemento;
-
+        //vovler publicos los atributos de las cartas
         public Clase_Carta() { }
         public int _ID { get { return ID; } set { ID = value; } }
         public string _Nombre_Carta { get { return Nombre_Carta; } set { Nombre_Carta = value; } }
@@ -34,8 +34,8 @@ namespace ATTACK.Models
             conx_detalles.inicializa();
             string CONSULTA;
             System.Data.OleDb.OleDbDataReader CONTENEDOR;
-
-            CONSULTA = "EXEC INGRESAR_CARTA ?,?,?,?,?,?,?";
+            //para que las que esto funcion debe pasar y leer los parametros correctos de la pagina para luego conectarlo con el visual y luego la base
+            CONSULTA = "EXEC INGRESAR_CARTA ?,?,?,?,?,?,?";//ejecuta la funcion de la base que permite ingresar la carta
             conx_detalles.annadir_consulta(CONSULTA);
             conx_detalles.annadir_parametro(_ID, 1);
             conx_detalles.annadir_parametro(_Nombre_Carta, 2);
@@ -95,7 +95,7 @@ namespace ATTACK.Models
             string CONSULTA;
             System.Data.OleDb.OleDbDataReader CONTENEDOR;
 
-            CONSULTA = "EXEC ELIMINAR_CARTA ?";
+            CONSULTA = "EXEC ELIMINAR_CARTA ?";//ejecuta la funcion de la base que permite eliminar una carta 
             conx_detalles.annadir_consulta(CONSULTA);
             conx_detalles.annadir_parametro(_ID, 1);
             CONTENEDOR = conx_detalles.busca();
@@ -120,7 +120,7 @@ namespace ATTACK.Models
             string CONSULTA;
             System.Data.OleDb.OleDbDataReader CONTENEDOR;
 
-            CONSULTA = "EXEC SELECCIONAR_CARTA ?";
+            CONSULTA = "EXEC SELECCIONAR_CARTA ?";//ejecuta la funcion de la base que permite seleccionar una carta
             cnx.annadir_consulta(CONSULTA);
             cnx.annadir_parametro(0, 1);
             CONTENEDOR = cnx.busca();

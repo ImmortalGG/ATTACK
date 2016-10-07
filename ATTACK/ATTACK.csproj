@@ -204,6 +204,16 @@
     <Content Include="bin\System.Web.WebPages.Razor.xml" />
     <Content Include="bin\System.Web.WebPages.xml" />
     <Content Include="bin\WebGrease.dll" />
+    <Content Include="Cartas\Angel_Guerrera.png" />
+    <Content Include="Cartas\Bruja.png" />
+    <Content Include="Cartas\Dragon_De_La_Muerte.png" />
+    <Content Include="Cartas\Dragon_Esqueleto.png" />
+    <Content Include="Cartas\Elfa_Arquera.png" />
+    <Content Include="Cartas\Guerrero.png" />
+    <Content Include="Cartas\Guerrero_Ninja.png" />
+    <Content Include="Cartas\Hydra.png" />
+    <Content Include="Cartas\Necromante.png" />
+    <Content Include="Cartas\Rey_Demonio.png" />
     <Content Include="css\estilo.css" />
     <Content Include="css\materialize.css" />
     <Content Include="css\materialize.min.css" />

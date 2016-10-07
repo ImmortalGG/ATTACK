@@ -11,6 +11,7 @@ namespace ATTACK.Controllers
     public class DECKController : ApiController
     {
         public HttpResponseMessage Post(FormDataCollection form)
+        //le llegan las funciones de la pagina que conectan con el visual y luego las envia a la clase que le corresponde
         {
             switch (form.Get("op"))
             {

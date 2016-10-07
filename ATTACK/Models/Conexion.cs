@@ -6,6 +6,7 @@ using System.Data.OleDb;
 
 namespace ATTACK.Models
 {
+    //esta clase permite la conceccion del visual con toda la pagina y los controladores junto a la cadenaconexion
     public class Conexion
     {
         public OleDbConnection conexion;

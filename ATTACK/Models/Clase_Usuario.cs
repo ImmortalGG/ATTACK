@@ -7,13 +7,14 @@ namespace ATTACK.Models
 {
     public class Clase_Usuario
     {
+        //parametros de la clase usuario
         private string Nombre;
         private string Correo;
         private string Contra;
         private int Tipo;
 
         public Clase_Usuario() { }
-
+        //volver publicos los parametros de la clase usuario
         public string _Nombre { get { return Nombre; } set { Nombre = value; } }
         public string _Correo { get { return Correo; } set { Correo = value; } }
         public string _Contra { get { return Contra; } set { Contra = value; } }
@@ -29,7 +30,7 @@ namespace ATTACK.Models
             string CONSULTA;
             System.Data.OleDb.OleDbDataReader CONTENEDOR;
 
-            CONSULTA = "EXEC CREAR_USUARIO ?,?,?,?";
+            CONSULTA = "EXEC CREAR_USUARIO ?,?,?,?";//ejecuta la funcion de la base que permite crear un nuevo usuario
             conx_detalles.annadir_consulta(CONSULTA);
             conx_detalles.annadir_parametro(_Nombre, 2);
             conx_detalles.annadir_parametro(_Correo, 2);
@@ -56,7 +57,7 @@ namespace ATTACK.Models
             string CONSULTA;
             System.Data.OleDb.OleDbDataReader CONTENEDOR;
 
-            CONSULTA = "EXEC MODIFICAR_USUARIO ?,?,?,?";
+            CONSULTA = "EXEC MODIFICAR_USUARIO ?,?,?,?";//ejecuta la funcion de la base que permite modificar un usuario
             conx_detalles.annadir_consulta(CONSULTA);
             conx_detalles.annadir_parametro(_Nombre, 2);
             conx_detalles.annadir_parametro(_Correo, 2);
@@ -83,7 +84,7 @@ namespace ATTACK.Models
             string CONSULTA;
             System.Data.OleDb.OleDbDataReader CONTENEDOR;
 
-            CONSULTA = "EXEC ELIMINAR_USUARIO ?";
+            CONSULTA = "EXEC ELIMINAR_USUARIO ?";//ejecuta la funcion de la base que permite eliminar un usuario
             conx_detalles.annadir_consulta(CONSULTA);
             conx_detalles.annadir_parametro(_Nombre, 2);
 
@@ -110,7 +111,7 @@ namespace ATTACK.Models
             string CONSULTA;
             System.Data.OleDb.OleDbDataReader CONTENEDOR;
 
-            CONSULTA = "EXEC SELECCIONAR_USUARIO ?";
+            CONSULTA = "EXEC SELECCIONAR_USUARIO ?";//ejecuta la funcion de la base que permite seleccionar un usuario
             cnx.annadir_consulta(CONSULTA);
             cnx.annadir_parametro(0, 1);
             CONTENEDOR = cnx.busca();

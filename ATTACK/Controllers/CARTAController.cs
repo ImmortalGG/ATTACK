@@ -12,6 +12,7 @@ namespace ATTACK.Controllers
     public class CARTAController : ApiController
     {
          [EnableCors(origins: "*", headers: "*", methods: "*")]
+        //le llegan las funciones de la pagina que conectan con el visual y luego las envia a la clase que le corresponde
         public HttpResponseMessage Post(FormDataCollection form)
         {
             switch (form.Get("op"))

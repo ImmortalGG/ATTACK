@@ -13,6 +13,7 @@ namespace ATTACK.Controllers
         [HttpPost]
       
         public HttpResponseMessage Post(FormDataCollection form)
+        //le llegan las funciones de la pagina que conectan con el visual y luego las envia a la clase que le corresponde
         {
             switch (form.Get("op"))
             {
