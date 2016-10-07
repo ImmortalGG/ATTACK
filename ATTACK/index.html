@@ -164,7 +164,7 @@
     
     
   </head>
-    <header>
+    <body onload="listas()">
         
         <div class="container">
 
@@ -192,9 +192,9 @@
             </nav>
         </div>
          
-    </header>
+    
 
-    <body >
+   
         
         
         
@@ -210,12 +210,11 @@
                 
                     
                         <div class="center">
-                            <select name="sources" id="sources" class="custom-select sources" placeholder="Usuario">
-                                <option value="profile">Libre</option>
-                                <option value="word">Para</option>
-                                <option value="hashtag">Siempre</option>
+                            <select name="sources" id="sources2" class="custom-select sources" placeholder="Cartas">
                             </select>
                         </div>
+
+                            <select name="sources" id="sources" class="custom-select sources" placeholder="Usuario"></select>
                     
                
             
@@ -224,8 +223,79 @@
         <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
         <script src="js/index2.js"></script>
+    <script>
+        function listas() {
+            var persona = new Object();
+            persona.op = 'listar';            
+
+            $.ajax({
+                
+                url: "api/USUARIO",
+                type: 'POST',
+                dataType: 'json',
+                data: persona,
+                success: function (data, textStatus, xhr) {
+                    if (data.ID == 0) {
+                        alert("Usuario no registrado");
+                    } else {
+                        for (var ele in data) {
+                            var x = document.getElementById("sources");
+                            var option = document.createElement("option");
+                            option.text = data[ele]._Nombre;
+                            option.value = data[ele]._Nombre;
+                            option.id = data[ele]._Nombre;
+                            //   option.id=
+                            x.add(option);
+                        }
+
+                    }
+
+
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    alert(xhr);
+                }
+            });
+        }
+
+        function listas2() {
+            var persona = new Object();
+            persona.op = 'listar';
+
+            $.ajax({
+
+                url: "api/CARTA",
+                type: 'POST',
+                dataType: 'json',
+                data: persona,
+                success: function (data, textStatus, xhr) {
+                    if (data.ID == 0) {
+                        alert("Carta no existente");
+                    } else {
+                        for (var ele in data) {
+                            var x = document.getElementById("sources2");
+                            var option = document.createElement("option");
+                            option.text = data[ele]._ID;
+                            option.value = data[ele]._ID;
+                            option.id = data[ele]._ID;
+                            //   option.id=
+                            x.add(option);
+                        }
+
+                    }
+
+
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    alert(xhr);
+                }
+            });
+        }
+        
+
+
+    </script>
     
-    
-    
-  </body>
+</body>
+ 
 </html>
